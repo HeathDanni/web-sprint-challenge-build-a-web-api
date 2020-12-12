@@ -18,7 +18,7 @@ router.get("/api/projects/:id", (req, res) => {
 
 router.post("/api/projects", (req, res) => {
     projectsModel.insert(req.body)
-        .then((action) => res.status(201).json(action))
+        .then((project) => res.status(201).json(project))
         .catch((err) => next(err))
 })
 
