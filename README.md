@@ -66,16 +66,16 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 ### Project Structure and Dependencies
 
-- [ ] Do not move or rename existing files or folders.
-- [ ] All necessary libraries are already installed in the project.
+- [X] Do not move or rename existing files or folders.
+- [X] All necessary libraries are already installed in the project.
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement MVP on your newly created `<firstName-lastName>` branch.
-- [ ] Commit & push your code regularly and meaningfully.
+- [X] Create a forked copy of this project.
+- [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [X] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [X] Implement MVP on your newly created `<firstName-lastName>` branch.
+- [X] Commit & push your code regularly and meaningfully.
 
 ### Task 2: Project Requirements (MVP)
 
