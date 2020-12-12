@@ -6,6 +6,7 @@ const server = express();
 
 server.use(express.json())
 server.use(actionsRouter)
+server.use(projectsRouter)
 
 // server.use((err, req, res, next) => {
 //     console.log(err)
