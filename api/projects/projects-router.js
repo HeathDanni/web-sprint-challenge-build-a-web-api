@@ -12,7 +12,7 @@ router.get("/api/projects", (req, res) => {
 
 router.get("/api/projects/:id", (req, res) => {
     projectsModel.get(req.params.id)
-        .then((action) => res.status(200).json(action))
+        .then((project) => res.status(200).json(project))
         .catch((err) => next(err))
 })
 

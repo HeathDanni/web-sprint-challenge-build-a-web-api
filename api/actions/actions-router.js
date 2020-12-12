@@ -18,12 +18,14 @@ router.get("/api/actions/:id", (req, res) => {
 
 router.post("/api/actions", (req, res) => {
     actionsModel.insert(req.body)
-        .then((action) => res.status(201).json(action))
+        .then((project) => res.status(201).json(project))
         .catch((err) => next(err))
 })
 
 router.put("/api/actions/:id", (req, res) => {
-    
+    actionsModel.update(req.body)
+        .then((project) => res.status(201).json(project))
+        .catch((err) => next(err))
 })
 
 router.delete("/api/actions/:id", (req, res) => {
