@@ -4,13 +4,13 @@ const projectsModel = require("./projects-model")
 
 const router = express.Router()
 
-router.get("/api/projects", (req, res) => {
+router.get("/api/projects", (req, res, next) => {
     projectsModel.get()
         .then((actions) => res.status(200).json(actions))
         .catch((err) => next(err))
 })
 
-router.get("/api/projects/:id", (req, res) => {
+router.get("/api/projects/:id", (req, res, next) => {
     projectsModel.get(req.params.id)
         .then((project) => res.status(200).json(project))
         .catch((err) => next(err))
@@ -22,12 +22,16 @@ router.post("/api/projects", (req, res) => {
         .catch((err) => next(err))
 })
 
-router.put("/api/projects/:id", (req, res) => {
-    
+router.put("/api/projects/:id", (req, res, next) => {
+    projectsModel.update(req.params.id, req.body)
+        .then((project) => res.status(201).json(project))
+        .catch((err) => next(err))
 })
 
-router.delete("/api/projects/:id", (req, res) => {
-    
+router.delete("/api/projects/:id", (req, res, next) => {
+    projectsModel.remove(req.params.id)
+        .then((project) => res.status(200).json(project))
+        .catch((err) => next(err))
 })
 
 // function validateActionId() {

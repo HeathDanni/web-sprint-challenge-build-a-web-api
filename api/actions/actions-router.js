@@ -23,8 +23,8 @@ router.post("/api/actions", (req, res) => {
 })
 
 router.put("/api/actions/:id", (req, res) => {
-    actionsModel.update(req.body)
-        .then((project) => res.status(201).json(project))
+    actionsModel.update(req.params.id, req.body)
+        .then((action) => res.status(201).json(action))
         .catch((err) => next(err))
 })
 
