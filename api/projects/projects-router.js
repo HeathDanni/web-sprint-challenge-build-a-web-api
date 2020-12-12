@@ -21,19 +21,21 @@ router.post("/api/projects", (req, res) => {
 })
 
 router.put("/api/projects/:id", validateProject(), (req, res) => {
-    projects.update(req.project, req.body)
+    projects.update(req.project.id, req.body)
         .then((project) => res.status(201).json(project))
         .catch((err) => res.status(500).json("there was an error"))
 })
 
 router.delete("/api/projects/:id", validateProject(), (req, res) => {
-    projects.remove(req.project)
-        .then((project) => res.status(200).json(project))
+    projects.remove(req.project.id)
+        .then((project) => res.status(200).json({
+            message: `project ${req.project.id} was successfully deleted`
+        }))
         .catch((err) => res.status(500).json("there was an error"))
 })
 
 router.get("/api/projects/:id/actions", validateProject(), (req, res) => {
-    projects.getProjectActions(req.project)
+    projects.getProjectActions(req.project.id)
         .then((project) => res.status(200).json(project))
         .catch((err) => res.status(500).json("there was an error"))
 })

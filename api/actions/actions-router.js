@@ -1,43 +1,62 @@
 // Write your "actions" router here!
 const express = require("express")
-const actionsModel = require("./actions-model")
+const actions = require("./actions-model")
 
 const router = express.Router()
 
 router.get("/api/actions", (req, res) => {
-    actionsModel.get()
-        .then((actions) => res.status(200).json(actions))
-        .catch((err) => next(err))
+    actions.get()
+        .then((action) => res.status(200).json(action))
+        .catch((err) => res.status(505).json({
+            message: "there was an error"
+        }))
 })
 
-router.get("/api/actions/:id", (req, res) => {
-    actionsModel.get(req.params.id)
-        .then((action) => res.status(200).json(action))
-        .catch((err) => next(err))
+router.get("/api/actions/:id", validateActionsId(), (req, res) => {
+    res.status(200).json(req.action)
 })
 
 router.post("/api/actions", (req, res) => {
-    actionsModel.insert(req.body)
-        .then((project) => res.status(201).json(project))
-        .catch((err) => next(err))
+    actions.insert(req.body)
+        .then((project) => 
+        res.status(201).json(project))
+        .catch((err) => res.status(500).json({
+            message: "There was an error creating the action."
+        }))
 })
 
-router.put("/api/actions/:id", (req, res) => {
-    actionsModel.update(req.params.id, req.body)
+router.put("/api/actions/:id", validateActionsId(), (req, res) => {
+    actions.update(req.action, req.body)
         .then((action) => res.status(201).json(action))
         .catch((err) => next(err))
 })
 
 router.delete("/api/actions/:id", (req, res) => {
-    actionsModel.remove(req.params.id)
+    actions.remove(req.params.id)
         .then((action) => res.status(200).json(action))
         .catch((err) => next(err))
 })
 
-// function validateActionId() {
-//     return (req, res, next) => {
-//         actionsModel.find
-//     }
-// }
+function validateActionsId() {
+    return (req, res, next) => {
+        actions.get(req.params.id)
+            .then((action) => {
+                if (action) {
+                    req.action = action
+                    next()
+                } else {
+                    res.status(404).json({
+                        message: "Action does not exist"
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                        res.status(500).json({
+                            message: "There was an error retrieving project"
+                        })
+                    })
+                }
+            })
+        }
+}
 
 module.exports = router
