@@ -29,7 +29,9 @@ router.put("/api/actions/:id", (req, res) => {
 })
 
 router.delete("/api/actions/:id", (req, res) => {
-    
+    actionsModel.remove(req.params.id)
+        .then((action) => res.status(200).json(action))
+        .catch((err) => next(err))
 })
 
 // function validateActionId() {
