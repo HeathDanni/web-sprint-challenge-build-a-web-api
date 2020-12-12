@@ -34,6 +34,12 @@ router.delete("/api/projects/:id", (req, res, next) => {
         .catch((err) => next(err))
 })
 
+router.get("/api/projects/:projectId/actions", (req, res, next) => {
+    projectsModel.getProjectActions(req.params.projectId)
+        .then((actions) => res.status(200).json(actions))
+        .catch((err) => next(err))
+})
+
 // function validateActionId() {
 //     return (req, res, next) => {
 //         actionsModel.find
