@@ -11,7 +11,9 @@ router.get("/api/actions", (req, res) => {
 })
 
 router.get("/api/actions/:id", (req, res) => {
-    
+    actionsModel.get(req.params.id)
+        .then((action) => res.status(200).json(action))
+        .catch((err) => next(err))
 })
 
 router.post("/api/actions", (req, res) => {
