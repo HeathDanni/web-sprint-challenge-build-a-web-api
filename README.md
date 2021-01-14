@@ -57,25 +57,34 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+    Node.js always Javascript to be run outside of the browser and Express makes it easier to make APIs. With these functionalities it is much easier to create a webserver.
 
+1. Understand and explain the use of Middleware.
+    Middleware gives functions somewhere to live so that they can be called and reused.
+
+1. The basic principles of the REST architectural style.
+    Rest is a standard way to write APIs so that data can be easily accessed.  The architectural is "/api/resources/resource_id/secondResources/secoundResorceId" and so on.
+
+1. Understand and explain the use of Express Routers.
+    Express routers allows you to house different parts of server in different files.  This way we can keep resources separated and keep our api more compartmentalized and organized.
+
+1. Describe tooling used to manually test the correctness of an API.
+    I personally like Insomnia so far.  You can use these tools to create calls and see if each end point is working correctly.
+    
 ## Instructions
 
 ### Project Structure and Dependencies
 
-- [ ] Do not move or rename existing files or folders.
-- [ ] All necessary libraries are already installed in the project.
+- [X] Do not move or rename existing files or folders.
+- [X] All necessary libraries are already installed in the project.
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement MVP on your newly created `<firstName-lastName>` branch.
-- [ ] Commit & push your code regularly and meaningfully.
+- [X] Create a forked copy of this project.
+- [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [X] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [X] Implement MVP on your newly created `<firstName-lastName>` branch.
+- [X] Commit & push your code regularly and meaningfully.
 
 ### Task 2: Project Requirements (MVP)
 
@@ -85,35 +94,35 @@ Your finished project must include all of the following requirements:
 
 A _"test"_ script already exists you can use to run tests against your code.
 
-- [ ] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
-- [ ] Write an _npm script_ named _"server"_ that uses `nodemon`to run the API server.
-- [ ] Use _nodemon_ as a development time dependency only that is not deployed to production.
+- [X] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
+- [X] Write an _npm script_ named _"server"_ that uses `nodemon`to run the API server.
+- [] Use _nodemon_ as a development time dependency only that is not deployed to production.
 
 #### Build an API
 
-- [ ] Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
+- [X] Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
   - `[GET] /api/actions` sends an array of actions (or an empty array) as the body of the _response_.
   - `[GET] /api/actions/:id` sends an action with the given `id` as the body of the _response_.
   - `[POST] /api/actions` sends the newly created action as the body of the _response_.
   - `[PUT] /api/actions/:id` sends the updated action as the body of the _response_.
   - `[DELETE] /api/actions/:id` sends no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
+- [X] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
   - `[GET] /api/projects` sends an array of projects (or an empty array) as the body of the response.
   - `[GET] /api/projects/:id` sends a project with the given `id` as the body of the _response_.
   - `[POST] /api/projects` sends the newly created project as the body of the _response_.
   - `[PUT] /api/projects/:id` sends the updated project as the body of the _response_.
   - `[DELETE] /api/projects/:id` sends no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
+- [X] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
   - `[GET] /api/projects/:id/actions` sends an array of actions (or an empty array) as the body of the response.
 
-- [ ] When adding an action, make sure the `project_id` provided belongs to an existing `project`.
+- [X] When adding an action, make sure the `project_id` provided belongs to an existing `project`.
 - [ ] If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Use an HTTP client like `HTTPie`, `Postman` or `Insomnia` to test the API's endpoints.
-- [ ] Use Express Routers to organize your endpoints.
-- [ ] Your `server.js` file lives inside the `api` folder.
-- [ ] Your `index.js` file lives at the root of the project.
+- [X] Use an HTTP client like `HTTPie`, `Postman` or `Insomnia` to test the API's endpoints.
+- [X] Use Express Routers to organize your endpoints.
+- [X] Your `server.js` file lives inside the `api` folder.
+- [X] Your `index.js` file lives at the root of the project.
 
 ### Task 3: Stretch Goals
 
